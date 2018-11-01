@@ -1,7 +1,7 @@
 
 
 let array = [];
-
+//skapar en funktion som slumpar fram 1000 tal mellan 1-6 och returnerar dessa i en array. 
 function randomDice (){
 
     for (let i = 0; i < 1000; i++) {
@@ -9,7 +9,7 @@ function randomDice (){
     }
     return array;
 }
-
+//Initierar variablerna som jag ska använda för att räkna ut antalet.
 let nr1 = 0;
 let nr2 = 0;
 let nr3 = 0;
@@ -17,6 +17,7 @@ let nr4 = 0;
 let nr5 = 0;
 let nr6 = 0;
 
+//Funktionen går igenom de slumpmässiga talen som tagits fram och lägger in dessa i vardera variabel.
 function print(){
     randomDice()
 

@@ -10,7 +10,7 @@
     
 
 let sum = 1;
-
+//Funktionen beräknar fakulteten och returnerar denna. Den tar emot ett heltal som parameter.
 function fakultet (tal) {
     for (let i = 1; i <= tal; i++) {  
         sum *= i;
@@ -18,19 +18,21 @@ function fakultet (tal) {
     return tal + "! = " + sum
 }
 
-
+//Här loopas en dialogruta för att ta emot argumentet från användaren. 
 while(true){
     let angivetTal = prompt("Ange ett heltal mellan 1 - 1000: ");
     
     if (angivetTal === null) {
         break;
     } 
-    
+    //Gör om användarens tal till datatypen Number och kontrollerar så att det är ett heltal samt kontrollerar att
+    // talet är mellan 1-1000 enligt instruktionerna. 
     angivetTal = Number(angivetTal);
     let helTal = Number.isInteger(angivetTal);
 
     if (angivetTal>= 1 && angivetTal < 1000 && helTal === true){
-        document.getElementById("text").innerHTML = fakultet(angivetTal);
+        let el = document.getElementById("text");
+        el.innerHTML = fakultet(angivetTal);
         break;
         
     } else {
