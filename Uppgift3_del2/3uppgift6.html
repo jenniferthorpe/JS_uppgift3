@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Fakultet</title>
+</head>
+<body>
+    <h1 id="text"></h1>
+    <script>
+    
+
+let sum = 1;
+
+function fakultet (tal) {
+    for (let i = 1; i <= tal; i++) {  
+        sum *= i;
+    }
+    return tal + "! = " + sum
+}
+
+
+while(true){
+    let angivetTal = prompt("Ange ett heltal mellan 1 - 1000: ");
+    
+    if (angivetTal === null) {
+        break;
+    } 
+    
+    angivetTal = Number(angivetTal);
+    let helTal = Number.isInteger(angivetTal);
+
+    if (angivetTal>= 1 && angivetTal < 1000 && helTal === true){
+        document.getElementById("text").innerHTML = fakultet(angivetTal);
+        break;
+        
+    } else {
+        alert("Ange ett heltal mellan 1 - 1000");
+    }
+    
+}
+
+    </script>
+</body>
+</html>
