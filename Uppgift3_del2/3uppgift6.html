@@ -8,38 +8,44 @@
     <h1 id="text"></h1>
     <script>
     
-
-let sum = 1;
-//Funktionen beräknar fakulteten och returnerar denna. Den tar emot ett heltal som parameter.
-function fakultet (tal) {
-    for (let i = 1; i <= tal; i++) {  
-        sum *= i;
+    //Funktionen beräknar fakulteten och returnerar denna. Den tar emot ett heltal som parameter.
+    function fakultet (tal) {
+        let sum = 1;
+        for (let i = 1; i <= tal; i++) {  
+            sum *= i;
+        }
+        if(sum === Infinity){
+            alert("Talet är för högt!");
+            window.location.reload(); //Jag vet inte hur jag ska göra kontrollen och även kunna börja om while-loopen så jag
+                                      //reloadar bara sidan åt användaren vilket fungerar här eftersom jag inte behöver spara någon inmatning
+                                      //sedan tidigare körning. 
+        } else {
+            return tal + "! = " + sum;
+        }
     }
-    return tal + "! = " + sum
-}
 
-//Här loopas en dialogruta för att ta emot argumentet från användaren. 
-while(true){
-    let angivetTal = prompt("Ange ett heltal mellan 1 - 1000: ");
-    
-    if (angivetTal === null) {
-        break;
-    } 
-    //Gör om användarens tal till datatypen Number och kontrollerar så att det är ett heltal samt kontrollerar att
-    // talet är mellan 1-1000 enligt instruktionerna. 
-    angivetTal = Number(angivetTal);
-    let helTal = Number.isInteger(angivetTal);
+    //Här loopas en dialogruta för att ta emot argumentet från användaren. 
+    while(true){
 
-    if (angivetTal>= 1 && angivetTal < 1000 && helTal === true){
-        let el = document.getElementById("text");
-        el.innerHTML = fakultet(angivetTal);
-        break;
+        let angivetTal = prompt("Ange ett heltal mellan 1 - 1000: ");
         
-    } else {
-        alert("Ange ett heltal mellan 1 - 1000");
+        if (angivetTal === null) {
+            break;
+        } 
+        //Gör om användarens tal till datatypen Number och kontrollerar så att det är ett heltal samt kontrollerar att
+        // talet är mellan 1-1000 enligt instruktionerna. 
+        angivetTal = Number(angivetTal);
+        let helTal = Number.isInteger(angivetTal);
+
+        if (angivetTal >= 1 && angivetTal <= 1000 && helTal === true){
+            let el = document.getElementById("text");
+            el.innerHTML = fakultet(angivetTal);
+            break;
+
+        } else {
+            alert("Ange ett heltal");
+        }    
     }
-    
-}
 
     </script>
 </body>
